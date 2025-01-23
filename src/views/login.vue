@@ -64,18 +64,29 @@ export default {
             // console.log("Inicio de sesion")
             let user = this.form.user
             let password = this.form.password
+            console.log(user, password);
+            
             if (user !== "" && password !== "") {
+                console.log(this.url + "/login", { name: this.form.user, password: this.form.password});
+                
                 axios
-                    .post(this.url + "auth/login", { name: this.form.user, password: this.form.password })
+                    .post(this.url + "/login", { name: this.form.user, password: this.form.password })
                     .then((resp) => {
-                        axios.defaults.headers.common["Authorization"] =
-                            "Bearer " + resp.data.token;
-                        localStorage.setItem(
-                            "token",
-                            JSON.stringify(resp.data.token)
-                        );
-                        this.$router.push({ path: "/dashboard" });
-                        console.log(resp)
+                        console.log(resp);
+                        
+                        if(resp.data.status_db === false){
+                            alert("Usuario o contraseña incorrectos")
+                            return
+                        }else{
+                            this.$router.push({ path: "/dashboard" });
+                            console.log(resp)
+                        }
+                        // axios.defaults.headers.common["Authorization"] =
+                        //     "Bearer " + resp.data.token;
+                        // localStorage.setItem(
+                        //     "token",
+                        //     JSON.stringify(resp.data.token)
+                        // );
                     })
                     .catch((err) => {
                         console.log(err)
