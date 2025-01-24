@@ -5,13 +5,6 @@
       <span>Agregar zona</span>
     </div>
   </div>
-  <!-- <div class="texto-response">
-    <p v-for="item in data">
-      Zona:{{ item.zoneName }}
-      <br>
-      Creación: {{ item.creation_date }}
-    </p>
-  </div> -->
   <div class="texto-response">
     <p v-for="item in data" :key="item.zoneName" class="button-style" @click="showDetails(item)">
       Zona: {{ item.zoneName }}
@@ -222,30 +215,70 @@ export default {
 </script>
 
 <style scoped>
-/* Estilo del rectángulo punteado */
+/* Fondo del template */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #eaf8e6; /* Fondo verde suave */
+  color: #333;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que ocupe toda la altura */
+  width: 100%;
+  background-color: #eaf8e6; /* Fondo verde suave */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Contenedor del botón de agregar zona */
 .add-zone-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 100px;
-  border: 2px dashed #ccc;
+  border: 2px dashed #90ee90; /* Verde claro */
   border-radius: 8px;
   cursor: pointer;
   color: #555;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Fondo gris claro */
   transition: background-color 0.3s, color 0.3s;
 }
 
 .add-zone-container:hover {
-  background-color: #e6e6e6;
+  background-color: #e6e6e6; /* Fondo al pasar */
   color: #333;
+}
+
+/* Botones de detalles */
+.texto-response p {
+  display: block;
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 300px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.texto-response p:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* SweetAlert2 estilos personalizados */
 .swal-btn-confirm {
-  background-color: #4caf50 !important;
-  /* Verde */
+  background-color: #4caf50 !important; /* Verde */
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
@@ -258,8 +291,7 @@ export default {
 }
 
 .swal-btn-cancel {
-  background-color: #f44336 !important;
-  /* Rojo */
+  background-color: #f44336 !important; /* Rojo */
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
@@ -271,20 +303,32 @@ export default {
   background-color: #e53935 !important;
 }
 
-.button-style {
-  display: inline-block;
-  margin: 10px 0;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Diseño Responsivo */
+
+/* Para pantallas pequeñas (teléfonos) */
+@media (max-width: 600px) {
+  .add-zone-container {
+    width: 150px;
+    height: 75px;
+    font-size: 14px;
+  }
+
+  .texto-response p {
+    max-width: 100%;
+    padding: 10px;
+  }
 }
 
-.button-style:hover {
-  background-color: #0056b3;
+/* Para pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .add-zone-container {
+    width: 180px;
+    height: 90px;
+  }
+
+  .texto-response p {
+    max-width: 250px;
+  }
 }
+
 </style>
