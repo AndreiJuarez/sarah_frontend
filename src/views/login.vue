@@ -21,26 +21,26 @@
                         <input type="password" v-model="form.password" placeholder='Ingresa contraseña'
                             class='w-full bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none rounded-lg px-4 py-3' />
                     </div>
-                    <div class='text-right mt-2'>
+                    <!-- <div class='text-right mt-2'>
                         <a href="#"
                             class='text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700 focus:outline-none'>Olvide
                             mi contraseña</a>
-                    </div>
+                    </div> -->
                     <button @click="login()"
                         class='w-full bg-blue-500 hover:bg-blue-400 px-4 py-3 mt-6 rounded-lg font-semibold text-white focus:bg-blue-400 focus:outline-none'>Log
                         In</button>
 
                     <hr class='my-6 border-gray-300 w-full' />
 
-                    <p class='mt-8'>
+                    <!-- <p class='mt-8'>
                         ¿Necesitas una cuenta?
                         <button class='text-blue-500 hover:text-blue-700' @click="this.$router.push('/registro')">
                             Crea cuenta
                         </button>
-                    </p>
+                    </p> -->
 
                     <p class='text-sm text-gray-500 mt-12'>
-                        &copy; 2022 SARAH Powered By Andrei Juarez
+                        &copy; 2025 SARAH Powered By Andrei Juarez
                     </p>
                 </div>
             </div>
