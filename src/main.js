@@ -20,7 +20,7 @@ library.add(faUserSecret, far, fas)
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 
 
-app.config.globalProperties.BaseURL = "http://192.168.1.70:4000";
+app.config.globalProperties.BaseURL = "http://192.168.1.77:4000";
 // app.config.globalProperties.BaseURL = "http://192.168.1.100:3000/";
 
 app.use(router);
